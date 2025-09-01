@@ -261,6 +261,17 @@
   filter: hue-rotate(70deg) contrast(50%) blur(3px);
 }
 
+@supports (
+  (text-stroke: 1px var(--main-color)) or
+    (-webkit-text-stroke: 1px var(--main-color))
+) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--main-color);
+    text-stroke: 1px var(--main-color);
+    text-shadow: none;
+  }
+}
+
 @media (width <=375px) {
   .dialog__button {
     display: flex;
