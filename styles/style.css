@@ -8,7 +8,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "wdht" var(--card-text-weight);
+  font-variation-settings: "wght" var(--card-text-weight);
 }
 
 .header {
@@ -52,7 +52,7 @@
 .card__title {
   padding: 4px 10px;
   font-size: var(--card-font-size);
-  font-variation-settings: "wdht" var(--card-title-weight);
+  font-variation-settings: "wght" var(--card-title-weight);
 }
 
 .card__image {
@@ -87,7 +87,7 @@
   flex-direction: column;
   gap: 25px;
   padding: 25px;
-  font-variation-settings: "wdht" var(--card-text-weight);
+  font-variation-settings: "wght" var(--card-text-weight);
   font-size: var(--card-font-size);
   line-height: 21px;
 }
