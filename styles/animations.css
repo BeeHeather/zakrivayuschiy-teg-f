@@ -50,26 +50,26 @@
   transition: opacity 0.3s ease;
 }
 
-.like-icon:hover .main-body {
+.card__icon-button:hover .main-body {
   fill: var(--hover-color);
   transition-delay: 0.05s;
 }
 
-.like-icon:hover .core {
+.card__icon-button:hover .core {
   fill: var(--hover-color);
   transition-delay: 0s;
 }
 
-.like-icon:active .contour {
-  fill: var(--active-color);
+.card__icon-button:active .contour {
+  fill: var(--contour-color);
 }
 
-.like-icon:active .main-body {
+.card__icon-button:active .main-body {
   fill: var(--active-color);
   transition-delay: 0.05s;
 }
 
-.like-icon:active .core {
+.card__icon-button:active .core {
   fill: var(--active-color);
   transition-delay: 0s;
 }
