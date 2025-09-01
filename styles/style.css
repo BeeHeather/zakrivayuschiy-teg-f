@@ -87,7 +87,7 @@
   flex-direction: column;
   gap: 25px;
   padding: 25px;
-  font-weight: "wdht" var(--card-text-weight);
+  font-variation-settings: "wdht" var(--card-text-weight);
   font-size: var(--card-font-size);
   line-height: 21px;
 }
