@@ -1,16 +1,288 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--main-font);
+  background-image: var(--gradient-background);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: "wdht" var(--card-text-weight);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--block-width);
+  height: var(--block-height);
+  margin-block-start: 100px;
+  margin-block-end: 100px;
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+  text-align: center;
+  background-color: var(--main-color);
+}
+
+.header__logo {
+  font-size: var(--logo-font-size);
+}
+
+.header__title {
+  margin-block-start: 20px;
+  font-size: var(--h1-font-size);
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  flex-direction: column;
+  justify-items: center;
+  gap: 50px;
+  margin-block-end: 100px;
+}
+
+.card {
+  width: var(--block-width);
+  border: 2px solid var(--accent-color);
+  background-color: var(--main-color);
+}
+
+.card__title {
+  padding: 4px 10px;
+  font-size: var(--card-font-size);
+  font-variation-settings: "wdht" var(--card-title-weight);
+}
+
+.card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  object-fit: cover;
+  object-position: 97%;
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  opacity: 50%;
+  font-family: var(--accent-font);
+  font-size: var(--card-sub-font-size);
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 var(--main-color), 1px -1px 0 var(--main-color),
+    -1px 1px 0 var(--main-color), 1px 1px 0 var(--main-color);
+  mix-blend-mode: hard-light;
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  font-weight: "wdht" var(--card-text-weight);
+  font-size: var(--card-font-size);
+  line-height: 21px;
+}
+
+.card__button-container {
+  display: flex;
+  justify-content: flex-end;
+  block-size: 38px;
+}
+
+.card__button {
+  background: transparent;
+  cursor: pointer;
+}
+
+.card__icon-button {
+  border: none;
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-weight: var(--button-weight);
+  font-size: var(--card-sub-font-size);
+  line-height: 90%;
+}
+
+.card__like-button {
+  position: relative;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  inline-size: 130px;
+}
+
+.card__like-button::before,
+.dialog__button::before,
+.modal__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.card__like-button:hover::before,
+.dialog__button:hover::before,
+.modal__button:hover::before {
+  transform: translateX(0);
+}
+
+.card__like-button span {
+  position: relative;
+  z-index: 2;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 0px var(--accent-color);
+}
+
+.card__icon-button:focus-visible {
+  border: 1px solid var(--accent-color);
+}
+
+.dialog__button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  background: var(--main-color);
+  cursor: pointer;
+  inline-size: 338px;
+  block-size: 54px;
+}
+
+.dialog__button span {
+  position: relative;
+  z-index: 2;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.dialog__button-icon {
+  position: relative;
+  z-index: 2;
+  filter: invert(100%);
+  mix-blend-mode: difference;
+}
+
+.modal {
+  border: 2px solid var(--accent-color);
+  padding: 30px;
+  max-inline-size: 355px;
+}
+
+.modal[open] {
+  display: block;
+}
+
+.modal__description {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal__text {
+  font-family: var(--accent-font);
+  font-weight: var(--button-weight);
+  font-size: var(--card-sub-font-size);
+  line-height: 21px;
+  text-transform: uppercase;
+  max-inline-size: 234px;
+}
+
+.modal__button {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  margin-top: 30px;
+  border: 2px solid var(--accent-color);
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+}
+
+.modal__button span {
+  position: relative;
+  z-index: 2;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.modal::backdrop {
+  opacity: 0.75;
+  background-color: var(--accent-color);
+}
+
+.contrast-filter {
+  filter: contrast(80%) grayscale(60%);
+}
+
+.saturation-filter {
+  filter: saturate(400%);
+}
+
+.sepia-filer {
+  filter: sepia(50%) contrast(80%) saturate(200%);
+}
+
+.inversion-filter {
+  filter: invert(100%) contrast(60%);
+}
+
+.grayscale-filter {
+  filter: grayscale(60%) sepia(80%);
+}
+
+.blur-filter {
+  filter: blur(20px);
+}
+
+.hue-rotate-filter {
+  filter: hue-rotate(70deg) contrast(50%) blur(3px);
+}
+
+@media (width <=375px) {
+  .dialog__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 306px;
+    height: 84px;
+    padding: 15px 20px;
+  }
+
+  .dialog__button-icon {
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .modal__button-icon {
+    min-width: 39px;
+    min-height: 39px;
+  }
+
+  .modal {
+    max-width: 341px;
+    padding: 30px 40px;
+  }
 }
