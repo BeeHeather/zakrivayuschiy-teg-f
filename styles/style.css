@@ -89,13 +89,12 @@
   padding: 25px;
   font-size: var(--card-font-size);
   line-height: 21px;
-  font-variation-settings: "wght" var(--card-text-weight);
 }
 
 .card__button-container {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 6px;
   block-size: 38px;
 }
 
@@ -129,10 +128,6 @@
 }
 
 .card__like-button {
-  position: relative;
-  border: 2px solid var(--accent-color);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
   inline-size: 130px;
 }
 
@@ -160,11 +155,15 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 0px var(--accent-color);
+  /* Плавная анимация при фокусе */
+  transition: box-shadow 0.3s ease;
 }
 
 .card__icon-button:focus-visible {
   /* Сделала обводку при фокусе толще согласно макету */
   border: 2px solid var(--accent-color);
+  /* Плавная анимация при фокусе */
+  transition: border 0.3s ease;
 }
 
 .dialog__button {
